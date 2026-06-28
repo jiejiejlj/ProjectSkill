@@ -407,7 +407,7 @@ description 决定 Claude **何时自动触发**这个技能。统一句式:
   - `references/`:长参考文档(如详细规则、API 说明)。
   - `scripts/`:可执行脚本。
   - `assets/`:模板、示例数据。
-  - 引用示例:`详见 [references/规则.md](references/规则.md)`。
+  - 引用示例:`详见 [references/rules.md](references/rules.md)`。
 
 ## 4. allowed-tools 取舍
 - 模板默认预填只读工具 `Read, Grep, Glob`——技能一触发就拿到、少弹窗,且只读相对安全。

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # king-skill 框架分层校验:
-#   第一层(必跑,仅依赖 jq + shell):JSON 合法性、技能 frontmatter、kebab 命名、重名
+#   第一层(必跑,仅依赖 jq + shell):JSON 合法性、技能 frontmatter、kebab 命名、重名、英文文件名
 #   第二层(尽力跑):有 claude CLI 时执行 claude plugin validate
 set -uo pipefail
 
@@ -64,6 +64,17 @@ if [[ -d "$SKILLS_DIR" ]]; then
     fi
     seen_names[$name]=1
   done
+fi
+
+# --- 第一层:文件名一律英文(技能目录内所有文件/子目录名只允许 ASCII)---
+if [[ -d "$SKILLS_DIR" ]]; then
+  ascii_name='^[A-Za-z0-9._-]+$'
+  while IFS= read -r -d '' path; do
+    base="$(basename "$path")"
+    if [[ ! "$base" =~ $ascii_name ]]; then
+      err "文件名含非英文字符(请用英文 kebab-case): ${path#./}"
+    fi
+  done < <(find "$SKILLS_DIR" -mindepth 1 -print0)
 fi
 ok "技能数量: $skill_count"
 

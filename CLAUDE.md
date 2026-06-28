@@ -14,5 +14,6 @@
 
 ## 硬约束
 - 技能标识符:英文 kebab-case(`^[a-z0-9]+(-[a-z0-9]+)*$`)。
+- 所有文件名一律英文 kebab-case(含技能目录内 `references/`/`scripts/`/`assets/` 的文件);不要用中文文件名,文件内容可中文。
 - 不要把非技能文件放进 `plugins/king-skill/skills/`。
 - 不新增 plugin 时不要改 marketplace 名(`king`)与 plugin 名(`king-skill`)。

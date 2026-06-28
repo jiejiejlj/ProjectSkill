@@ -143,6 +143,7 @@ allowed-tools: Read, Grep, Glob      # 预填只读工具;按需增删
 2. 遍历 `plugins/king-skill/skills/*/SKILL.md`:每个含非空 `description` frontmatter。
 3. 每个技能目录名匹配 kebab-case 正则 `^[a-z0-9]+(-[a-z0-9]+)*$`。
 4. 技能名无重复。
+5. 技能目录内所有文件/子目录名只允许英文 ASCII(`^[A-Za-z0-9._-]+$`),禁止中文文件名(内容可中文)。
 
 第二层(尽力跑):若 `command -v claude` 存在,则执行 `claude plugin validate .`。
 

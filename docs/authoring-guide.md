@@ -29,7 +29,8 @@ description 决定 Claude **何时自动触发**这个技能。统一句式:
   - `references/`:长参考文档(如详细规则、API 说明)。
   - `scripts/`:可执行脚本。
   - `assets/`:模板、示例数据。
-  - 引用示例:`详见 [references/规则.md](references/规则.md)`。
+  - 引用示例:`详见 [references/rules.md](references/rules.md)`。
+- **文件名一律英文 kebab-case**(含 `references/`、`scripts/`、`assets/` 里的文件,如 `rules.md`、`build.sh`),不要用中文文件名;文件内容仍可全中文。
 
 ## 4. allowed-tools 取舍
 - 模板默认预填只读工具 `Read, Grep, Glob`——技能一触发就拿到、少弹窗,且只读相对安全。
@@ -48,3 +49,4 @@ description 决定 Claude **何时自动触发**这个技能。统一句式:
 - ✓ 加/改技能后 plugin.json 版本 patch +1。
 - ✗ 不要在 description 里堆形容词;不要把长文档塞进 SKILL.md 本体。
 - ✗ 不要在 `skills/` 里放非技能文件。
+- ✗ 不要用中文文件名(文件名一律英文 kebab-case;内容可中文)。
