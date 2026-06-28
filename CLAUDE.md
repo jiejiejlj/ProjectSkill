@@ -7,7 +7,7 @@
 ## 加一个技能(操作清单)
 1. 照 `templates/SKILL.template.md` 在 `plugins/king-skill/skills/<kebab-标识符>/SKILL.md` 新建。
 2. description 用句式「当<场景>时使用——<做什么>」,场景在前,全中文。
-3. 正文全中文且精简;长内容放 `references/`,脚本放 `scripts/`,数据放 `assets/`。
+3. 正文全中文且精简;长内容放技能目录内的 `references/`,脚本放 `scripts/`,数据放 `assets/`(均相对该技能目录,勿与仓库根的 `scripts/` 混淆)。
 4. 运行 `bash scripts/validate.sh` 校验,必须通过。
 5. `plugins/king-skill/.claude-plugin/plugin.json` 的 `version` 做 patch +1。
 6. 单 plugin 场景下 `.claude-plugin/marketplace.json` 无需改动。
