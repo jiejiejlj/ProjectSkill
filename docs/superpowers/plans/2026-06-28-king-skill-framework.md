@@ -12,7 +12,7 @@
 
 - 技能标识符(目录名 = slash 名):英文 kebab-case,正则 `^[a-z0-9]+(-[a-z0-9]+)*$`。
 - 技能 `description` 与正文:全中文;description 句式「当<场景>时使用——<做什么>」,场景在前。
-- plugin 名固定 `king-skill`;marketplace 名固定 `king`;`metadata.pluginRoot = "./plugins"`,故 source 写 `king-skill`。
+- plugin 名固定 `king-skill`;marketplace 名固定 `king`;`metadata.pluginRoot = "./plugins"`,source 写 `./king-skill`(必须以 `./` 开头,经 `claude plugin validate` 实测;裸名会报 `Invalid input`)。
 - 版本 semver,起始 `0.1.0`;加/改技能时 patch +1。
 - author 只放 `name: "king"` + 仓库链接,不放邮箱;LICENSE 沿用 MIT。
 - 模板 `allowed-tools` 预填只读工具 `Read, Grep, Glob`。
@@ -32,7 +32,7 @@
 - Create: `.gitignore`
 
 **Interfaces:**
-- Produces: 市场名 `king`、plugin 名 `king-skill`、`pluginRoot=./plugins`、source=`king-skill`;skills 目录路径 `plugins/king-skill/skills/`。后续 Task 2 的校验脚本依赖这两个 JSON 路径与 skills 目录路径。
+- Produces: 市场名 `king`、plugin 名 `king-skill`、`pluginRoot=./plugins`、source=`./king-skill`;skills 目录路径 `plugins/king-skill/skills/`。后续 Task 2 的校验脚本依赖这两个 JSON 路径与 skills 目录路径。
 
 - [ ] **Step 1: 创建目录与 plugin.json**
 
@@ -64,7 +64,7 @@
   "plugins": [
     {
       "name": "king-skill",
-      "source": "king-skill",
+      "source": "./king-skill",
       "description": "king 的自用技能集合"
     }
   ]

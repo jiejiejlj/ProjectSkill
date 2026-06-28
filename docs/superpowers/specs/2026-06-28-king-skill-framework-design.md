@@ -102,14 +102,15 @@ ProjectSkill/
   "plugins": [
     {
       "name": "king-skill",
-      "source": "king-skill",
+      "source": "./king-skill",
       "description": "king 的自用技能集合"
     }
   ]
 }
 ```
 
-- `metadata.pluginRoot = "./plugins"`,故 `source: "king-skill"` 解析为 `./plugins/king-skill`。
+- `metadata.pluginRoot = "./plugins"`,故 `source: "./king-skill"` 解析为 `./plugins/king-skill`。
+- **注意**:`source` 必须以 `./` 开头(经 `claude plugin validate` v2.1.195 实测;裸名 `"king-skill"` 会报 `Invalid input`)。
 
 ### 4.3 `templates/SKILL.template.md`
 

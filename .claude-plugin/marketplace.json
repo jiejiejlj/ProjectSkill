@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "king-skill",
-      "source": "king-skill",
+      "source": "./king-skill",
       "description": "king 的自用技能集合"
     }
   ]
