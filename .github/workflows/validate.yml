@@ -1,0 +1,16 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 确保 jq 可用
+        run: jq --version
+      - name: 运行框架校验
+        run: bash scripts/validate.sh
