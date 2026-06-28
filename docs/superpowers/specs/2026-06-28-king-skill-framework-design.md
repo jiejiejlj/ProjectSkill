@@ -98,19 +98,18 @@ ProjectSkill/
   "name": "king",
   "owner": { "name": "king" },
   "description": "king 的个人 Claude Code 插件市场",
-  "metadata": { "pluginRoot": "./plugins" },
   "plugins": [
     {
       "name": "king-skill",
-      "source": "./king-skill",
+      "source": "./plugins/king-skill",
       "description": "king 的自用技能集合"
     }
   ]
 }
 ```
 
-- `metadata.pluginRoot = "./plugins"`,故 `source: "./king-skill"` 解析为 `./plugins/king-skill`。
-- **注意**:`source` 必须以 `./` 开头(经 `claude plugin validate` v2.1.195 实测;裸名 `"king-skill"` 会报 `Invalid input`)。
+- `source` 写从市场根目录算起的完整相对路径 `./plugins/king-skill`,且必须以 `./` 开头。
+- **注意(实测)**:`claude plugin install` 把 `source` 当作**相对市场根目录**解析,且**不应用 `metadata.pluginRoot`**。claude CLI v2.1.195 实测:用 `pluginRoot:"./plugins"` + `source:"./king-skill"` 时 `claude plugin validate` 会通过,但实际安装去找 `<市场根>/king-skill`(而非 `plugins/king-skill`)→ 安装失败。所以**不用 `pluginRoot`**,直接在 `source` 写全路径。裸名 `"king-skill"`(无 `./`)则连 validate 都报 `Invalid input`。
 
 ### 4.3 `templates/SKILL.template.md`
 
