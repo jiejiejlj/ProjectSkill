@@ -16,7 +16,7 @@ king 的自用 Claude Code 技能集合,以单一 plugin `king-skill` 形式,经
 
 ## 加一个技能
 1. 复制 `templates/SKILL.template.md` 到 `plugins/king-skill/skills/<英文-kebab>/SKILL.md`。
-2. 按 [docs/authoring-guide.md](docs/authoring-guide.md) 填 description(句式「当<场景>时使用——<做什么>」)与正文(中文)。
+2. 按 [docs/authoring-guide.md](docs/authoring-guide.md) 填 description(句式「当<场景>时使用——<做什么>」)与正文(简体中文)。
 3. `bash scripts/validate.sh` 通过。
 4. plugin 版本 patch +1。
 

@@ -6,12 +6,12 @@
 
 **Architecture:** 仓库根 `.claude-plugin/marketplace.json` 作市场(名 `king`),`plugins/king-skill/` 作单一 plugin;技能以后放进 `plugins/king-skill/skills/<kebab>/SKILL.md`。校验脚本分两层:无依赖的结构检查必跑,`claude plugin validate` 在有 CLI 时尽力跑;CI 在 GitHub Actions 跑同一脚本。
 
-**Tech Stack:** Claude Code plugin/marketplace 规范、JSON、bash、`jq`、GitHub Actions、Markdown(中文文档)。
+**Tech Stack:** Claude Code plugin/marketplace 规范、JSON、bash、`jq`、GitHub Actions、Markdown(简体中文文档)。
 
 ## Global Constraints
 
 - 技能标识符(目录名 = slash 名):英文 kebab-case,正则 `^[a-z0-9]+(-[a-z0-9]+)*$`。
-- 技能 `description` 与正文:全中文;description 句式「当<场景>时使用——<做什么>」,场景在前。
+- 技能 `description` 与正文:全简体中文;description 句式「当<场景>时使用——<做什么>」,场景在前。
 - plugin 名固定 `king-skill`;marketplace 名固定 `king`;`metadata.pluginRoot = "./plugins"`,source 写 `./king-skill`(必须以 `./` 开头,经 `claude plugin validate` 实测;裸名会报 `Invalid input`)。
 - 版本 semver,起始 `0.1.0`;加/改技能时 patch +1。
 - author 只放 `name: "king"` + 仓库链接,不放邮箱;LICENSE 沿用 MIT。
@@ -390,7 +390,7 @@ description 决定 Claude **何时自动触发**这个技能。统一句式:
 
 > 当<触发场景>时使用——<这个技能做什么>。
 
-场景在前(便于触发匹配),功能在后,全中文。
+场景在前(便于触发匹配),功能在后,全简体中文。
 
 **正例**
 - `当需要把改动提交成 git commit 时使用——按本仓库规范生成提交信息并执行提交。`
@@ -401,7 +401,7 @@ description 决定 Claude **何时自动触发**这个技能。统一句式:
 - `这个技能很强大,可以帮你做很多和 git 有关的事`(空泛,无明确触发点)
 
 ## 3. 正文怎么写
-- 全中文。
+- 全简体中文。
 - 保持 SKILL.md 精简:本体只放「目的 + 步骤 + 注意」。
 - 渐进式披露:长内容拆出去,SKILL.md 里按需链接。
   - `references/`:长参考文档(如详细规则、API 说明)。
@@ -421,7 +421,7 @@ description 决定 Claude **何时自动触发**这个技能。统一句式:
 - 从菜单隐藏、只让 Claude 调:`user-invocable: false`。
 
 ## 6. do / don't
-- ✓ 标识符英文 kebab-case;description 用统一句式;正文中文精简。
+- ✓ 标识符英文 kebab-case;description 用统一句式;正文简体中文精简。
 - ✓ 改完跑 `bash scripts/validate.sh`。
 - ✓ 加/改技能后 plugin.json 版本 patch +1。
 - ✗ 不要在 description 里堆形容词;不要把长文档塞进 SKILL.md 本体。
@@ -462,8 +462,8 @@ Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
 
 ## 加一个技能(操作清单)
 1. 照 `templates/SKILL.template.md` 在 `plugins/king-skill/skills/<kebab-标识符>/SKILL.md` 新建。
-2. description 用句式「当<场景>时使用——<做什么>」,场景在前,全中文。
-3. 正文全中文且精简;长内容放 `references/`,脚本放 `scripts/`,数据放 `assets/`。
+2. description 用句式「当<场景>时使用——<做什么>」,场景在前,全简体中文。
+3. 正文全简体中文且精简;长内容放 `references/`,脚本放 `scripts/`,数据放 `assets/`。
 4. 运行 `bash scripts/validate.sh` 校验,必须通过。
 5. `plugins/king-skill/.claude-plugin/plugin.json` 的 `version` 做 patch +1。
 6. 单 plugin 场景下 `.claude-plugin/marketplace.json` 无需改动。
@@ -497,7 +497,7 @@ king 的自用 Claude Code 技能集合,以单一 plugin `king-skill` 形式,经
 
 ## 加一个技能
 1. 复制 `templates/SKILL.template.md` 到 `plugins/king-skill/skills/<英文-kebab>/SKILL.md`。
-2. 按 [docs/authoring-guide.md](docs/authoring-guide.md) 填 description(句式「当<场景>时使用——<做什么>」)与正文(中文)。
+2. 按 [docs/authoring-guide.md](docs/authoring-guide.md) 填 description(句式「当<场景>时使用——<做什么>」)与正文(简体中文)。
 3. `bash scripts/validate.sh` 通过。
 4. plugin 版本 patch +1。
 

@@ -14,7 +14,7 @@
 - 以 Claude Code **plugin** 形式组织,并通过 **marketplace** 方式安装、跨机同步。
 - 所有技能装进**单一 plugin**(`king-skill`)。
 - 配套:新技能模板 + 作者规范、分层校验脚本 + CI、三份文档(README / 作者规范 / CLAUDE.md)。
-- 技能正文与 `description` 全中文;技能标识符用英文 kebab-case。
+- 技能正文与 `description` 全简体中文;技能标识符用英文 kebab-case。
 
 非目标(YAGNI):多主题 plugin 拆分、专属脚手架技能、CHANGELOG、git 钩子。这些以后需要再加。
 
@@ -29,8 +29,8 @@
 | 版本策略 | semver,从 `0.1.0` 起;加/改技能时 patch +1 |
 | 作者信息 | `author.name = "king"` + 仓库链接;不放邮箱;LICENSE 沿用 MIT |
 | 技能标识符 | 英文 kebab-case(目录名 = slash 名) |
-| description | 全中文,句式「当<场景>时使用——<做什么>」,场景在前 |
-| 正文语言 | 全中文 |
+| description | 全简体中文,句式「当<场景>时使用——<做什么>」,场景在前 |
+| 正文语言 | 全简体中文 |
 | 触发模式 | 默认自动触发 + 可手动调用(沿用默认) |
 | 辅助文件 | `references/`(长文档)、`scripts/`(脚本)、`assets/`(模板/数据) |
 | 加新技能 | 静态模板 + CLAUDE.md 规矩 + 全局 `skill-creator`;不做专属脚手架技能 |
@@ -143,7 +143,7 @@ allowed-tools: Read, Grep, Glob      # 预填只读工具;按需增删
 2. 遍历 `plugins/king-skill/skills/*/SKILL.md`:每个含非空 `description` frontmatter。
 3. 每个技能目录名匹配 kebab-case 正则 `^[a-z0-9]+(-[a-z0-9]+)*$`。
 4. 技能名无重复。
-5. 技能目录内所有文件/子目录名只允许英文 ASCII(`^[A-Za-z0-9._-]+$`),禁止中文文件名(内容可中文)。
+5. 技能目录内所有文件/子目录名只允许英文 ASCII(`^[A-Za-z0-9._-]+$`),禁止中文文件名(内容可用简体中文)。
 
 第二层(尽力跑):若 `command -v claude` 存在,则执行 `claude plugin validate .`。
 
@@ -159,8 +159,8 @@ allowed-tools: Read, Grep, Glob      # 预填只读工具;按需增删
 
 - **CLAUDE.md**(精简,载入上下文用):「加一个技能」的操作清单——
   1. 照 `templates/SKILL.template.md` 在 `plugins/king-skill/skills/<kebab-标识符>/SKILL.md` 新建。
-  2. description 用句式「当<场景>时使用——<做什么>」,场景在前,全中文。
-  3. 正文全中文;长内容拆到 `references/`,脚本放 `scripts/`,数据放 `assets/`。
+  2. description 用句式「当<场景>时使用——<做什么>」,场景在前,全简体中文。
+  3. 正文全简体中文;长内容拆到 `references/`,脚本放 `scripts/`,数据放 `assets/`。
   4. 运行 `bash scripts/validate.sh` 校验。
   5. `plugins/king-skill/.claude-plugin/plugin.json` 版本 patch +1。
   6. 单 plugin 场景下 marketplace.json 无需改动。

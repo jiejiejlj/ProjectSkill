@@ -4,16 +4,20 @@
 
 在本仓库里干活时遵守以下规矩。完整说明见 [docs/authoring-guide.md](docs/authoring-guide.md)。
 
+## 开发语言
+- **一律使用简体中文开发**:技能 `description`、正文,以及仓库内文档(README、authoring-guide、提交信息说明等)都用**简体中文**书写。
+- 不要使用繁体中文、英文或其他语言来写这些内容(代码、标识符、文件名等技术标识除外——它们一律英文)。
+
 ## 加一个技能(操作清单)
 1. 照 `templates/SKILL.template.md` 在 `plugins/king-skill/skills/<kebab-标识符>/SKILL.md` 新建。
-2. description 用句式「当<场景>时使用——<做什么>」,场景在前,全中文。
-3. 正文全中文且精简;长内容放技能目录内的 `references/`,脚本放 `scripts/`,数据放 `assets/`(均相对该技能目录,勿与仓库根的 `scripts/` 混淆)。
+2. description 用句式「当<场景>时使用——<做什么>」,场景在前,全简体中文。
+3. 正文全简体中文且精简;长内容放技能目录内的 `references/`,脚本放 `scripts/`,数据放 `assets/`(均相对该技能目录,勿与仓库根的 `scripts/` 混淆)。
 4. 运行 `bash scripts/validate.sh` 校验,必须通过。
 5. `plugins/king-skill/.claude-plugin/plugin.json` 的 `version` 做 patch +1。
 6. 单 plugin 场景下 `.claude-plugin/marketplace.json` 无需改动。
 
 ## 硬约束
 - 技能标识符:英文 kebab-case(`^[a-z0-9]+(-[a-z0-9]+)*$`)。
-- 所有文件名一律英文 kebab-case(含技能目录内 `references/`/`scripts/`/`assets/` 的文件);不要用中文文件名,文件内容可中文。
+- 所有文件名一律英文 kebab-case(含技能目录内 `references/`/`scripts/`/`assets/` 的文件);不要用中文文件名,文件内容可用简体中文。
 - 不要把非技能文件放进 `plugins/king-skill/skills/`。
 - 不新增 plugin 时不要改 marketplace 名(`king`)与 plugin 名(`king-skill`)。
