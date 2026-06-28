@@ -363,17 +363,17 @@ Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
 
 ---
 
-### Task 5: 作者规范文档 docs/作者规范.md
+### Task 5: 作者规范文档 docs/authoring-guide.md
 
 **Files:**
-- Create: `docs/作者规范.md`
+- Create: `docs/authoring-guide.md`
 
 **Interfaces:**
 - Produces: 完整人读指南,被 CLAUDE.md 与 README 引用。
 
 - [ ] **Step 1: 写文档**
 
-写 `docs/作者规范.md`:
+写 `docs/authoring-guide.md`:
 
 ```markdown
 # king-skill 作者规范
@@ -431,7 +431,7 @@ description 决定 Claude **何时自动触发**这个技能。统一句式:
 - [ ] **Step 2: 提交**
 
 ```bash
-git add docs/作者规范.md
+git add docs/authoring-guide.md
 git commit -m "docs: 添加作者规范完整指南
 
 Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
@@ -446,7 +446,7 @@ Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
 - Create: `README.md`
 
 **Interfaces:**
-- Consumes: Task 5 的 `docs/作者规范.md`(被链接)、Task 2 的 `scripts/validate.sh`。
+- Consumes: Task 5 的 `docs/authoring-guide.md`(被链接)、Task 2 的 `scripts/validate.sh`。
 - Produces: 仓库根文档。CLAUDE.md 精简操作规矩;README 面向安装与开发。
 
 - [ ] **Step 1: 写 CLAUDE.md**
@@ -458,7 +458,7 @@ Co-Authored-By: Claude Opus 4.8 (1M context) <noreply@anthropic.com>"
 
 本仓库是 king 的自用 Claude Code 技能集合:单一 plugin `king-skill`,经 marketplace `king` 分发。
 
-在本仓库里干活时遵守以下规矩。完整说明见 [docs/作者规范.md](docs/作者规范.md)。
+在本仓库里干活时遵守以下规矩。完整说明见 [docs/authoring-guide.md](docs/authoring-guide.md)。
 
 ## 加一个技能(操作清单)
 1. 照 `templates/SKILL.template.md` 在 `plugins/king-skill/skills/<kebab-标识符>/SKILL.md` 新建。
@@ -497,7 +497,7 @@ king 的自用 Claude Code 技能集合,以单一 plugin `king-skill` 形式,经
 
 ## 加一个技能
 1. 复制 `templates/SKILL.template.md` 到 `plugins/king-skill/skills/<英文-kebab>/SKILL.md`。
-2. 按 [docs/作者规范.md](docs/作者规范.md) 填 description(句式「当<场景>时使用——<做什么>」)与正文(中文)。
+2. 按 [docs/authoring-guide.md](docs/authoring-guide.md) 填 description(句式「当<场景>时使用——<做什么>」)与正文(中文)。
 3. `bash scripts/validate.sh` 通过。
 4. plugin 版本 patch +1。
 
@@ -505,14 +505,14 @@ king 的自用 Claude Code 技能集合,以单一 plugin `king-skill` 形式,经
 - `.claude-plugin/marketplace.json` — 市场清单(名 `king`)
 - `plugins/king-skill/` — 单一 plugin(技能在 `skills/` 下)
 - `templates/` — 新技能模板
-- `docs/作者规范.md` — 作者完整指南
+- `docs/authoring-guide.md` — 作者完整指南
 - `scripts/validate.sh` — 分层校验脚本
 - `.github/workflows/validate.yml` — CI 校验
 ```
 
 - [ ] **Step 3: 校验链接路径存在**
 
-Run: `test -f docs/作者规范.md && test -f templates/SKILL.template.md && echo "links ok"`
+Run: `test -f docs/authoring-guide.md && test -f templates/SKILL.template.md && echo "links ok"`
 Expected: 打印 `links ok`。
 
 - [ ] **Step 4: 提交**
@@ -554,7 +554,7 @@ Expected: 至少包含:
 ./CLAUDE.md
 ./LICENSE
 ./README.md
-./docs/作者规范.md
+./docs/authoring-guide.md
 ./docs/superpowers/plans/2026-06-28-king-skill-framework.md
 ./docs/superpowers/specs/2026-06-28-king-skill-framework-design.md
 ./plugins/king-skill/.claude-plugin/plugin.json

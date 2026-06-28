@@ -36,7 +36,7 @@
 | 加新技能 | 静态模板 + CLAUDE.md 规矩 + 全局 `skill-creator`;不做专属脚手架技能 |
 | 校验 | 本地脚本 + GitHub Actions;不加 git 钩子 |
 | 校验设计 | 分层:自含检查必跑 + `claude plugin validate` 尽力跑 |
-| 文档 | 三份分开:CLAUDE.md(精简操作规矩)/ docs/作者规范.md(完整指南)/ README(安装与开发) |
+| 文档 | 三份分开:CLAUDE.md(精简操作规矩)/ docs/authoring-guide.md(完整指南)/ README(安装与开发) |
 | 模板 allowed-tools | 预填只读工具 `Read, Grep, Glob`,按需增删 |
 
 ## 3. 仓库结构
@@ -54,7 +54,7 @@ ProjectSkill/
 ├── templates/
 │   └── SKILL.template.md         # 新技能模板(在 skills/ 外,不会被误当成技能)
 ├── docs/
-│   ├── 作者规范.md
+│   ├── authoring-guide.md
 │   └── superpowers/specs/        # 设计与计划文档(本文件所在处)
 ├── scripts/
 │   └── validate.sh               # 分层校验脚本
@@ -163,13 +163,13 @@ allowed-tools: Read, Grep, Glob      # 预填只读工具;按需增删
   4. 运行 `bash scripts/validate.sh` 校验。
   5. `plugins/king-skill/.claude-plugin/plugin.json` 版本 patch +1。
   6. 单 plugin 场景下 marketplace.json 无需改动。
-  细节指向 `docs/作者规范.md`。
-- **docs/作者规范.md**(完整人读指南):description 句式正反例、技能目录布局、渐进式披露原则、`allowed-tools` 取舍、命名约定、do/don't 清单。
+  细节指向 `docs/authoring-guide.md`。
+- **docs/authoring-guide.md**(完整人读指南):description 句式正反例、技能目录布局、渐进式披露原则、`allowed-tools` 取舍、命名约定、do/don't 清单。
 - **README.md**(给使用者/安装者):
   - 项目简介。
   - 安装:`/plugin marketplace add jiejiejlj/ProjectSkill` → `/plugin install king-skill@king`。
   - 本地开发:`claude --plugin-dir ./plugins/king-skill`;或 `/plugin marketplace add ./` 后安装;改完用 `/reload-plugins`。
-  - 加技能:简述流程并链接到 `docs/作者规范.md`。
+  - 加技能:简述流程并链接到 `docs/authoring-guide.md`。
 
 ### 4.7 `.gitignore`
 

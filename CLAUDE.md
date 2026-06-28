@@ -2,7 +2,7 @@
 
 本仓库是 king 的自用 Claude Code 技能集合:单一 plugin `king-skill`,经 marketplace `king` 分发。
 
-在本仓库里干活时遵守以下规矩。完整说明见 [docs/作者规范.md](docs/作者规范.md)。
+在本仓库里干活时遵守以下规矩。完整说明见 [docs/authoring-guide.md](docs/authoring-guide.md)。
 
 ## 加一个技能(操作清单)
 1. 照 `templates/SKILL.template.md` 在 `plugins/king-skill/skills/<kebab-标识符>/SKILL.md` 新建。
