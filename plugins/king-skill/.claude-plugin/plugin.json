@@ -1,0 +1,10 @@
+{
+  "name": "king-skill",
+  "description": "king 的自用技能集合",
+  "version": "0.1.0",
+  "author": { "name": "king" },
+  "homepage": "https://github.com/jiejiejlj/ProjectSkill",
+  "repository": "https://github.com/jiejiejlj/ProjectSkill",
+  "license": "MIT",
+  "keywords": ["skills", "personal", "toolkit"]
+}

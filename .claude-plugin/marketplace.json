@@ -1,0 +1,13 @@
+{
+  "name": "king",
+  "owner": { "name": "king" },
+  "description": "king 的个人 Claude Code 插件市场",
+  "metadata": { "pluginRoot": "./plugins" },
+  "plugins": [
+    {
+      "name": "king-skill",
+      "source": "king-skill",
+      "description": "king 的自用技能集合"
+    }
+  ]
+}
