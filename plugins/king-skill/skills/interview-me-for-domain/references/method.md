@@ -1,4 +1,4 @@
-# interview-me-with-docs 方法论
+# interview-me-for-domain 方法论
 
 本技能 = **interview-me(盘问底座)+ 领域建模(活文档层)**。盘问纪律以 interview-me 技能为准,这里只讲叠加上去的领域建模部分。
 
